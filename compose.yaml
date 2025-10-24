@@ -1,0 +1,15 @@
+services:
+  shitchatadminui:
+    container_name: shitchatadminui
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3100:3000
+#     networks:
+#       - webproxy
+
+# networks:
+#   webproxy:
+#     external: true
