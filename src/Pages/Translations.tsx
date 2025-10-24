@@ -10,9 +10,9 @@ function Translations() {
     translations,
     loading,
     error,
-    addTranslation,
-    updateTranslation,
-    deleteTranslation
+    // addTranslation,
+    // updateTranslation,
+    // deleteTranslation
   } = useTranslations();
 
   const [showManageModal, setShowManageModal] = useState(false);

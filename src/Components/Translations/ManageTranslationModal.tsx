@@ -9,21 +9,21 @@ function ManageTranslationModal({ onClose, translation, mode }: ManageTranslatio
     value: translation?.value || ""
   })
 
-  const { loading, error, addTranslation, updateTranslation, deleteTranslation } = useTranslations();
+  const { addTranslation, updateTranslation, deleteTranslation } = useTranslations();
 
   const handleSubmit = async () => {
     if (!formData.name || !formData.value) return;
-    if (mode == ManageModalMode.Create)
+    if (mode === ManageModalMode.Create)
       await addTranslation(formData);
 
-    if (mode == ManageModalMode.Edit && translation)
+    if (mode === ManageModalMode.Edit && translation)
       await updateTranslation(translation.id, formData);
 
     onClose();
   }
 
   const handleDelete = async () => {
-    if (translation && mode == ManageModalMode.Edit)
+    if (translation && mode === ManageModalMode.Edit)
       await deleteTranslation(translation.id)
 
     onClose();
@@ -38,13 +38,13 @@ function ManageTranslationModal({ onClose, translation, mode }: ManageTranslatio
             type="text"
             placeholder="Name"
             value={formData.name}
-            onChange={(e) => setFormData((prev) => ({...prev, ["name"]: e.target.value}))}
+            onChange={(e) => setFormData((prev) => ({...prev, name: e.target.value}))}
           />
           <input
             type="text"
             placeholder="Name"
             value={formData.value}
-            onChange={(e) => setFormData((prev) => ({...prev, ["value"]: e.target.value}))}
+            onChange={(e) => setFormData((prev) => ({...prev, value: e.target.value}))}
           />
         </div>
 
@@ -52,7 +52,7 @@ function ManageTranslationModal({ onClose, translation, mode }: ManageTranslatio
           <button onClick={handleSubmit}>
             Save
           </button>
-          {mode == ManageModalMode.Edit && (
+          {mode === ManageModalMode.Edit && (
             <button onClick={handleDelete} className="Delete">
               Delete
             </button>
