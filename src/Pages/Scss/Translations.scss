@@ -1,0 +1,62 @@
+.Translations {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        margin-bottom: 15px;
+    }
+
+    .List {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        .Child {
+            background-color: #303e4e;
+            display: flex;
+            flex-direction: row;
+            padding: 10px 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+
+            p {
+                flex: 1;
+                color: #dddddd;
+            }
+
+            &.Header {
+                font-weight: bolder;
+                color: #fff;
+                border-bottom: 1px solid #ffffff2c;
+                width: 100%;
+
+                &:hover {
+                    filter: none;
+                    cursor: unset;
+                }
+            }
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+        }
+    }
+
+    button {
+        width: max-content;
+        padding: 10px 25px;
+        background-color: #303e4e;
+        color: #fff;
+        border: none;
+        outline: none;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
+}

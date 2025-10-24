@@ -1,0 +1,33 @@
+.Sidebar {
+    background-color: #303e4e;
+    width: 250px;
+    color: #dddddd;
+
+    h3 {
+        text-align: center;
+        margin: 15px;
+    }
+
+    nav ul {
+
+
+        li {
+
+            a {
+                color: #dddddd;
+                padding: 10px 20px;
+                text-decoration: none;
+                
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                align-items: center;
+
+                &.active {
+                    color: #22dda8;
+                    background-color: #22dda810;
+                }
+            }
+        }
+    }
+}

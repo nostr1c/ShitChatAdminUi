@@ -1,0 +1,11 @@
+.Container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+  .Content {
+    background-color: #f1f2f7;
+    flex: 1;
+    padding: 20px 30px;
+  }
+}
