@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Role } from "../Types/Role"
 import "./Scss/Translations.scss"
 import axios from "../Api/axiosInstance";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,7 +31,7 @@ function Roles() {
   };
   
   const handleCreateRole = async (newItem: string) => {
-    if (newItem == "") {
+    if (newItem === "") {
       return;
     }
 
@@ -73,7 +72,7 @@ function Roles() {
         <div className="Child Header">
           <p>Name</p>
         </div>
-        {status == "loading" && <p>Loading...</p>}
+        {status === "loading" && <p>Loading...</p>}
         {roles.map((r) => (
           <div 
             key={r.id}

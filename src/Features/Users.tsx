@@ -44,7 +44,7 @@ export const usersSlice = createSlice({
 
       user.roles = user.roles.filter((r) => r.id !== roleId);
 
-      if (user.roles.length == 0) {
+      if (user.roles.length === 0) {
         delete state.byId[userId];
         state.allIds = state.allIds.filter((uId) => uId !== userId);
       }

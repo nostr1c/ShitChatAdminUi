@@ -14,10 +14,7 @@ import { GetImageUrl } from "../Utils/General";
 function Users() {
   const dispatch = useDispatch<AppDispatch>();
   const { allIds:userIds, byId:usersById, status } = useSelector((state: RootState) => state.users);
-  const users = userIds.map((id) => usersById[id]);
-
   const { allIds: roleIds, byId: rolesById, status: roleStatus } = useSelector((state: RootState) => state.roles);
-  const roles = roleIds.map((id) => rolesById[id]);
 
   const [error, setError] = useState<string | null>(null);
   const [searchResult, setSearchResult] = useState<User[]>([]);
@@ -166,54 +163,6 @@ function Users() {
             ))}
         </table>
       ) : searchResult.length == 0 && hasSearched ? <p>No result</p> : null}
-
-      {/* <div className="AddRoleToUser">
-        <h4>Add Role to User</h4>
-        {selectedUser ? (
-          <p>
-            Selected User: <strong>{selectedUser.username}</strong> (ID: {selectedUser.id})
-          </p>
-        ) : (
-          <p style={{ color: "gray" }}>Select a user above to assign a role</p>
-        )}
-
-        <select
-          onChange={(e) => setSelectedRole(e.currentTarget.value)}
-          value={selectedRole}
-          disabled={!selectedUser || roleStatus === "loading"}
-        >
-          <option value="">Select Role</option>
-          {roles.map((r) => (
-            <option key={r.id} value={r.id}>
-              {r.name}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={handleAddRoleToUser} disabled={!selectedUser || !selectedRole}>
-          Add Role
-        </button>
-      </div>
-
-      <h4>Users with Roles</h4>
-      {status === "loading" && <p>Loading...</p>}
-      <div className="List">
-        {users.map((u) => (
-          <div key={u.user.id} className="Child">
-            <p>{u.user.username}</p>
-            <ul>
-              {u.roles.map((r) => (
-                <li key={r.id}>
-                  {r.name}
-                  <button onClick={() => handleRemoveRoleFromUser(u.user.id, r.id)}>
-                    Delete
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }
