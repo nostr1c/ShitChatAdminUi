@@ -1,3 +1,5 @@
+import { ManageModalMode } from "./Generic";
+
 export interface Translation {
   id: string;
   name: string;
@@ -7,10 +9,8 @@ export interface Translation {
 export type ManageTranslationModalProps = {
   onClose: () => void;
   translation?: Translation;
-  mode?: ManageModalMode
-}
-
-export enum ManageModalMode {
-  Edit,
-  Create
+  mode?: ManageModalMode;
+  addTranslation: (newItem: { name: string; value: string }) => Promise<void>;
+  updateTranslation: (id: string, updated: { name: string; value: string }) => Promise<void>;
+  deleteTranslation: (id: string) => Promise<void>;
 }

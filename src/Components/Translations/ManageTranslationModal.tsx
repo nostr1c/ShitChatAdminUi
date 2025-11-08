@@ -1,15 +1,20 @@
 import { useState } from "react";
-import { ManageModalMode, ManageTranslationModalProps } from "../../Types/Translation"
+import { ManageTranslationModalProps } from "../../Types/Translation"
 import "./Scss/ManageTranslationModal.scss"
-import { useTranslations } from "../../Context/TranslationsContext";
+import { ManageModalMode } from "../../Types/Generic";
 
-function ManageTranslationModal({ onClose, translation, mode }: ManageTranslationModalProps) {
+function ManageTranslationModal({ 
+  onClose,
+  translation,
+  mode,
+  addTranslation,
+  updateTranslation,
+  deleteTranslation,
+  }: ManageTranslationModalProps) {
   const [formData, setFormData] = useState({
     name: translation?.name || "",
     value: translation?.value || ""
   })
-
-  const { addTranslation, updateTranslation, deleteTranslation } = useTranslations();
 
   const handleSubmit = async () => {
     if (!formData.name || !formData.value) return;

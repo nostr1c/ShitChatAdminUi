@@ -5,3 +5,8 @@ export interface ApiResponse<T> {
   errors: Record<string, any>;
   status: number;
 }
+
+export enum ManageModalMode {
+  Edit,
+  Create
+}
